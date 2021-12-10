@@ -5,13 +5,18 @@ import GuiHour from '../img/gui-01.png';
 import GuiMinute from '../img/gui-02.png';
 
 const ClockWrapper = styled.div`
-  width: 70vh;
-  height: 70vh;
+  width: 70vw;
+  height: 70vw;
   background: white;
   border: 4px solid white;
   border-radius: 9999px;
   position: relative;
   box-shadow: 0 2vw 4vw -1vw rgba(0,0,0,0.8);
+
+  @media(min-width: 1024px) {
+    width: 70vh;
+    height: 70vh;
+  }
 `;
 
 const ClockPointer = styled.img`
@@ -24,16 +29,24 @@ const ClockPointer = styled.img`
 `;
 
 const ClockHourPointer = styled(ClockPointer)`
-  height: 26vh;
+  height: 26vw;
+
+  @media(min-width: 1024px) {
+    height: 26vh;
+  }
 `;
 
 const ClockMinutePointer = styled(ClockPointer)`
-  height: 30vh;
+  height: 26vw;
+
+  @media(min-width: 1024px) {
+    height: 30vh;
+  }
 `;
 
 const ClockSecondPointer = styled.div`
   width: 8px;
-  height: 26vh;
+  height: 26vw;
   display: block;
   background: white;
   border: 1px solid black;
@@ -42,11 +55,15 @@ const ClockSecondPointer = styled.div`
   left: 50%;
   transform-origin: center bottom;
   transform: translate(-50%, -100%) rotate(${props => props.angle ? props.angle + 'deg' : 0});
+
+  @media(min-width: 1024px) {
+    height: 26vh;
+  }
 `;
 
 const ClockDot = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   background: white;
   border-radius: 9999px;
   position: absolute;
@@ -54,11 +71,17 @@ const ClockDot = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 2px 4px -1px black;
+
+  @media(min-width: 1024px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 const ClockDisplay = styled.p`
   font-size: 2rem;
   color: white;
+  margin: 0;
 `;
 
 function hourToAngle(hour) {
