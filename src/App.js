@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Watch, Heart} from 'react-feather';
 import Clock from './components/Clock';
 
 const Wrapper = styled.main`
@@ -13,16 +14,38 @@ const Wrapper = styled.main`
   padding: 1rem;
 `;
 
-const Title = styled.h1 `
+const Title = styled.h1`
   color: white;
   margin: 0;
+
+  svg {
+    vertical-align: bottom;
+  }
+`;
+
+const Credits = styled.p`
+  color: white;
+  margin: 0;
+  
+  svg {
+    vertical-align: bottom;
+  }
+
+  a {
+    color: white;
+  }
 `;
 
 function App() {
   return (
     <Wrapper>
-      <Title>Gui Clock</Title>
+      <Title>
+        <Watch color='white' size={38} /> Gui Clock <Watch color='white' size={38} />
+      </Title>
       <Clock/>
+      <Credits>
+        Built with <Heart color='white' size={18} /> by <a href='https://github.com/qix1986' target='_blank' title='Juca github page'>Juca</a>
+      </Credits>
     </Wrapper>
   );
 }
